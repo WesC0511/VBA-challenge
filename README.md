@@ -1,9 +1,11 @@
 # VBA-challenge
 Homework 2 - VBA Scripting
 
-'Run VBA on All Sheet
 Sub RunAnalysisOnAllSheets()
+
 Dim ws As Worksheet
+Application.ScreenUpdating = False
+Application.Calculation = xlCalculationManual
 'Loop through all sheets in the workbook
 For Each ws In ThisWorkbook.Sheets
 'Activate the current sheet
@@ -11,9 +13,12 @@ ws.Activate
 'Run your existing Sub Ticker
 Call Ticker
 Next ws
+Application.ScreenUpdating = True
+Application.Calculation = xlCalculationAutomatic
+
 End Sub
 
-*Warning for Grader,if add Run VBA on All Sheet. Laptop will feel like it's slowing down and get super slow*
+"Warning for Grader, if run Sub Ticker() on all sheets will slow down laptop alot. Feel free to test run the Sub Ticker"
 
 Sub Ticker()
 'Define
